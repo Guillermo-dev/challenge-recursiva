@@ -10,6 +10,7 @@ include_once 'routes/web.php';
 
 
 try {
+    session_start();
     $router->run();   
 } catch (Throwable $e) {
     header('HTTP/1.0 500 Internal Server Error');

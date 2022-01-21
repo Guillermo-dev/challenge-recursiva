@@ -10,4 +10,6 @@ RewriteRule ^src/.* - [END]
 
 RewriteRule ^node_modules/.* - [END]
 
+RewriteRule ^api/.* api.php [END]
+
 RewriteRule .* index.php [END]
