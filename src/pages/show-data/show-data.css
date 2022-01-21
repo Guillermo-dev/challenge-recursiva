@@ -1,1 +1,5 @@
 @import "../../global/general.css";
+
+.card-header {
+    min-height: 5rem;
+}

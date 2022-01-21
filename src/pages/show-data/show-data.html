@@ -7,43 +7,52 @@
         <link rel="icon" href="/src/global/media/favicon.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link type="text/css" rel="stylesheet" href="show-data.css" />
+        <script type="module" src="show-data.js"></script>
     </head>
     <body>
         <div class="container bg-light">
             <div class="d-flex justify-content-around my-5 pt-5">
-
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-center">
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center d-flex align-items-center">
                         <strong>Personas registradas</strong>
                     </div>
-                    <div class="card-body text-center">
-                        <h1 class="card-title"><strong>150</strong></h1>
-                        <p class="card-text"><strong>Totales</strong></p>
+                    <div class="card-body text-center d-flex align-items-center justify-content-center">
+                        <div>
+                            <h1 class="card-text"><strong data-js="cantPersonasRegistradas">
+                                <!-- carga dinamica -->
+                            </strong></h1>
+                            <p class="card-text"><strong>Totales</strong></p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-center">
-                        <strong>Promedio de edad</strong>
-                        <p>hinchas de racing</p>
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center d-flex">
+                        <div>
+                            <strong>Promedio de edad</strong>
+                            <p>hinchas de racing</p>
+                        </div>
                     </div>
-                    <div class="card-body text-center">
-                        <h1 class="card-title"><strong>21</strong></h1>
-                        <p class="card-text"><strong>Años</strong></p>
+                    <div class="card-body text-center  d-flex align-items-center justify-content-center">
+                        <div>
+                            <h1 class="card-text"><strong data-js="promAniosRacing">
+                                <!-- carga dinamica -->
+                            </strong></h1>
+                            <p class="card-text"><strong>Años</strong></p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-center">
-                        <strong>Top 5</strong>
-                        <p>nombres de hinchas de river</p>
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center  d-flex align-items-center">
+                        <div>
+                            <strong>Top 5</strong>
+                            <p>nombres de hinchas de river</p>
+                        </div>
                     </div>
-                    <div class="card-body text-center">
-                        <p class="card-text">Guillermo</p>
-                        <p class="card-text">Guillermo</p>
-                        <p class="card-text">Guillermo</p>
-                        <p class="card-text">Guillermo</p>
-                        <p class="card-text">Guillermo</p>
+                    <div class="card-body text-center" data-js="nombresRiver">
+                        <!-- carga dinamica -->
+                        <!-- <p class="card-text m-0"><b>1) Guillermo</b></p> -->
                     </div>
                 </div>
 
@@ -60,13 +69,17 @@
                             <th scope="col">Equipo</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody data-js="">
+                        <!-- carga dinamica -->
+                        <!--
                         <tr>
                             <th class="text-start" scope="row">1</th>
                             <td>Guillermo</td>
                             <td>21</td>
                             <td>Fnatic</td>
                         </tr>
+                        -->
+                       
                     </tbody>
                 </table>
             </div>
@@ -76,27 +89,30 @@
                 <table class="table table-striped bg-light text-center"  data-js="tablaEdades">
                     <thead>
                         <tr>
-                        <th class="text-start" scope="col">#</th>
-                        <th scope="col">Equipo</th>
-                        <th scope="col">Promedio de edad</th>
-                        <th scope="col">Menor edad</th>
-                        <th scope="col">Mayor edad</th>
+                            <th scope="col">Cantidad de socios</th>
+                            <th scope="col">Equipo</th>
+                            <th scope="col">Promedio de edad</th>
+                            <th scope="col">Menor edad</th>
+                            <th scope="col">Mayor edad</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- carga dinamica -->
+                        <!--
                         <tr>
-                            <th class="text-start" scope="row">1</th>
+                            <th scope="row">1</th>
                             <td>fnatic</td>
                             <td>21</td>
                             <td>21</td>
                             <td>21</td>
                         </tr>
+                        -->
                     </tbody>
                 </table>
             </div>
 
             <div class="d-flex justify-content-center pb-4">
-                <button class="btn btn-primary btn-lg">VOLVER</button>
+                <a class="btn btn-primary btn-lg" href ="/">VOLVER</a>
             </div>
         </div>
     </body>
