@@ -3,7 +3,6 @@
 namespace api;
 
 use api\util\Response;
-use api\util\Request;
 use models\Persona;
 use Exception;
 
@@ -31,11 +30,17 @@ abstract class Archivos {
                 }
             }
 
-            $_SESSION["cantPersonasRegistradas"]  = utf8_encode($data[0][0]);
+            $_SESSION["cantPersonasRegistradas"]  = utf8_encode($data[0][1]);
+            $_SESSION["promAniosRacing"] = 5000;
+            $_SESSION["nombresRiver"] = ["Guille","Guille1","Guille2","Guille3","Guille4"];
         };
     }
 
     public static function getData(): void {
-        Response::getResponse()->appendData('data2', $_SESSION["cantPersonasRegistradas"]);
+        Response::getResponse()->appendData('cantPersonasRegistradas', $_SESSION["cantPersonasRegistradas"]);
+        Response::getResponse()->appendData('promAniosRacing', $_SESSION["promAniosRacing"]);
+        Response::getResponse()->appendData('nombresRiver', $_SESSION["nombresRiver"]);
+        //Response::getResponse()->appendData('tablaPersonas', $_SESSION["tablaPersonas"]);
+        //Response::getResponse()->appendData('tablaEdades', $_SESSION["tablaEdades"]);
     }
 }
