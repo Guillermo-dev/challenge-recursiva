@@ -2,7 +2,9 @@
 
 namespace models;
 
-class Persona {
+use JsonSerializable;
+
+class Persona implements JsonSerializable {
     private $nombre;
 
     private $edad;
@@ -41,23 +43,27 @@ class Persona {
         return $this->nivelEstudios;
     }
 
-    public function setNombre(string $nombre):void {
+    public function setNombre(string $nombre): void {
         $this->nombre = $nombre;
     }
 
-    public function setEdad(string $edad):void {
+    public function setEdad(string $edad): void {
         $this->edad = $edad;
     }
 
-    public function setEquipo(string $equipo):void {
+    public function setEquipo(string $equipo): void {
         $this->equipo = $equipo;
     }
 
-    public function setEstadoCivil(string $estadoCivel):void {
+    public function setEstadoCivil(string $estadoCivel): void {
         $this->estadoCivel = $estadoCivel;
     }
 
-    public function setNivelEstudios(string $nivelEstudios):void {
+    public function setNivelEstudios(string $nivelEstudios): void {
         $this->nivelEstudios = $nivelEstudios;
+    }
+
+    public function jsonSerialize(): array {
+        return get_object_vars($this);
     }
 }
