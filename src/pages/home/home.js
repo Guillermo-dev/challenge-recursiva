@@ -9,7 +9,7 @@ formArchivo.onsubmit = submitArchivo;
 
 function InputArchivoOnchange() {
     if (inputArchivo.files[0].type !== "application/vnd.ms-excel") {
-        iziToast.error({ message: "Tipo de archivo invalido" });
+        iziToast.error({ message: "Formato de archivo no valido", position: 'bottomLeft' });
         inputArchivo.value = "";
         btnEnviar.disabled = true;
     } else {
@@ -29,12 +29,10 @@ function submitArchivo(event) {
             if (response.status === "success") {
                 window.location.href = "/data";
             } else {
-                console.log(response)
-                iziToast.error({ message: response.error});
+                iziToast.error({ message: response.error, position: 'bottomLeft'});
             }
         })
         .catch((e) => {
-            console.log(e)
-            iziToast.error({ message: e.error });
+            iziToast.error({ message: e.error , position: 'bottomLeft'});
         });
 }

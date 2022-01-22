@@ -3,7 +3,7 @@ import "../../../node_modules/izitoast/dist/js/iziToast.min.js";
 const cantPersonasRegistradas = document.querySelector(
     "[data-js=cantPersonasRegistradas]"
 );
-const promAniosRacing = document.querySelector("[data-js=promAniosRacing]");
+const promEdadRacing = document.querySelector("[data-js=promEdadRacing]");
 const nombresRiver = document.querySelector("[data-js=nombresRiver]");
 const tablaPersonas = document.querySelector("[data-js=tablaPersonas]");
 const tablaEdades = document.querySelector("[data-js=tablaEdades]");
@@ -14,39 +14,46 @@ fetch(`/api/data`)
         if (response.status === "success") {
             processData(response.data);
         } else {
-            iziToast.error({ message: response.error });
+            iziToast.error({ message: response.error, position: 'bottomLeft'});
         }
     })
     .catch((e) => {
-        iziToast.error({ message: e });
+        iziToast.error({ message: e, position: 'bottomLeft'});
     });
 
 function processData(data) {
+    // Vista de cantidad de personas registradas
     cantPersonasRegistradas.innerHTML = data.cantPersonasRegistradas;
-    promAniosRacing.innerHTML = data.promAniosRacing;
+
+    // Vista de Promedio de edades de racing
+    promEdadRacing.innerHTML = data.promEdadRacing;
+
+    // Vista de 5 nombres mas comunes river
     data.nombresRiver.forEach((nombre, i) => {
-        i += 1;
-        nombresRiver.innerHTML += `<p class="card-text m-0"><b>${i}) ${nombre}</b></p>`;
+        nombresRiver.innerHTML += `<p class="card-text m-0"><b>${i+1}) ${nombre}</b></p>`;
     });
 
+    // Vista tabla de primeras 100 personas
     data.tablaPersonas.forEach((persona, i) => {
         tablaPersonas.innerHTML += 
             `<tr>
-                <th class="text-start" scope="row">${i}</th>
-                <td>${persona[0]}</td>
-                <td>${persona[1]}</td>
-                <td>${persona[2]}</td>
+                <th scope="row">${i+1}</th>
+                <td>${persona.nombre}</td>
+                <td>${persona.edad}</td>
+                <td>${persona.equipo}</td>
             </tr>`;
     });
 
+    // Vista tabla de equipos por cantidad de socios
     data.tablaEdades.forEach((euipoData) => {
+        console.log(euipoData)
         tablaEdades.innerHTML += 
             `<tr>
-                <th scope="row">${euipoData[0]}</th>
-                <td>${euipoData[1]}</td>
-                <td>${euipoData[2]}</td>
-                <td>${euipoData[3]}</td>
-                <td>${euipoData[4]}</td>
+                <th scope="row">${euipoData.cantSocios}</th>
+                <td>${euipoData.equipo}</td>
+                <td>${euipoData.promEdad}</td>
+                <td>${euipoData.minEdad}</td>
+                <td>${euipoData.maxEdad}</td>
             </tr>`;
     });
 }
