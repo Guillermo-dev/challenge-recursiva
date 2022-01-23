@@ -5,6 +5,24 @@
     display: none;
 }
 
+.card {
+    width: 25%;
+}
+
+@media (max-width: 992px) {
+    .card {
+        width: 40%;
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 90%;
+    }
+    
+}
+
 .card-header {
     min-height: 5rem;
 }
