@@ -34,7 +34,6 @@ class Archivos {
             $_SESSION["promEdadRacing"] = self::promedioEdadRacing($personas);
 
             // 5 nombre mas comunes de hinchas de river
-            self::nombresRiver($personas);
             $_SESSION["nombresRiver"] = self::nombresRiver($personas);
 
             // 100 primeras personas casadas y con estudios universitarios, ordenadas de menor a mayor por edad

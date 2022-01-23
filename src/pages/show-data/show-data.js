@@ -14,11 +14,11 @@ fetch(`/api/data`)
         if (response.status === "success") {
             processData(response.data);
         } else {
-            iziToast.error({ message: response.error, position: 'bottomLeft'});
+            iziToast.error({ message: response.error, position: "bottomLeft" });
         }
     })
     .catch((e) => {
-        iziToast.error({ message: e, position: 'bottomLeft'});
+        iziToast.error({ message: e, position: "bottomLeft" });
     });
 
 function processData(data) {
@@ -30,14 +30,15 @@ function processData(data) {
 
     // Vista de 5 nombres mas comunes river
     data.nombresRiver.forEach((nombre, i) => {
-        nombresRiver.innerHTML += `<p class="card-text m-0"><b>${i+1}) ${nombre}</b></p>`;
+        nombresRiver.innerHTML += `<p class="card-text m-0"><b>${
+            i + 1
+        }) ${nombre}</b></p>`;
     });
 
     // Vista tabla de primeras 100 personas
     data.tablaPersonas.forEach((persona, i) => {
-        tablaPersonas.innerHTML += 
-            `<tr>
-                <th scope="row">${i+1}</th>
+        tablaPersonas.innerHTML += `<tr>
+                <th scope="row">${i + 1}</th>
                 <td>${persona.nombre}</td>
                 <td>${persona.edad}</td>
                 <td>${persona.equipo}</td>
@@ -46,9 +47,7 @@ function processData(data) {
 
     // Vista tabla de equipos por cantidad de socios
     data.tablaEdades.forEach((euipoData) => {
-        console.log(euipoData)
-        tablaEdades.innerHTML += 
-            `<tr>
+        tablaEdades.innerHTML += `<tr>
                 <th scope="row">${euipoData.cantSocios}</th>
                 <td>${euipoData.equipo}</td>
                 <td>${euipoData.promEdad}</td>
