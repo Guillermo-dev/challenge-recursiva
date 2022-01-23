@@ -84,8 +84,8 @@ class Archivos {
         }
         $cienPrimeros = array_slice($cienPrimeros, 0, 100);
 
-        usort($cienPrimeros, function ($a, $b) {
-            return $a->getEdad()> $b->getEdad();
+        usort($cienPrimeros, function ($persona1, $persona2) {
+            return $persona1->getEdad()> $persona2->getEdad();
         });
 
         return $cienPrimeros;
@@ -96,8 +96,8 @@ class Archivos {
         foreach ($personas as $persona) {
             $edadesEquipos[$persona->getEquipo()][] = $persona->getEdad();
         }
-        uasort($edadesEquipos, function ($a, $b) {
-            return count($a) < count($b);
+        uasort($edadesEquipos, function ($equipo1, $equipo2) {
+            return count($equipo1) < count($equipo2);
         });
 
         $equipos = array();

@@ -13,6 +13,5 @@ try {
     session_start();
     $router->run();   
 } catch (Throwable $e) {
-    header('HTTP/1.0 500 Internal Server Error');
-    echo file_get_contents('src/pages/500/500.html');
+     \controllers\Direct::page500();
 }

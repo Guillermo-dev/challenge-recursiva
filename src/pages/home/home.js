@@ -39,6 +39,6 @@ function submitArchivo(event) {
         .catch((e) => {
             btnEnviar.disabled = false;
             btnEnviar.lastElementChild.classList.add("d-none");
-            iziToast.error({ message: e.error , position: 'bottomLeft'});
+            iziToast.error({ message: e , position: 'bottomLeft'});
         });
 }
