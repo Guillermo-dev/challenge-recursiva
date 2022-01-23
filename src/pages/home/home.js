@@ -9,7 +9,7 @@ formArchivo.onsubmit = submitArchivo;
 
 function InputArchivoOnchange() {
     if (inputArchivo.files[0].type !== "application/vnd.ms-excel") {
-        iziToast.error({ message: "Formato de archivo no valido", position: 'bottomLeft' });
+        iziToast.error({ message: "Extensión de archivo no valido", position: 'bottomLeft' });
         inputArchivo.value = "";
         btnEnviar.disabled = true;
     } else {
