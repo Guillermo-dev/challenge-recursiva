@@ -1,5 +1,22 @@
 @import "../../global/general.css";
 
+.show-data:not(.css-loaded) .css-loaded,
+.show-data:not(.css-loading) .css-loading {
+    display: none;
+}
+
 .card-header {
     min-height: 5rem;
+}
+
+#background-video  {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
 }

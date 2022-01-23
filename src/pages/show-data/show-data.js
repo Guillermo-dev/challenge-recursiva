@@ -1,5 +1,9 @@
 import "../../../node_modules/izitoast/dist/js/iziToast.min.js";
 
+const loader = document.querySelector(".css-loading");
+const loaded = document.querySelector(".css-loaded");
+loader.style.display="block";
+
 const cantPersonasRegistradas = document.querySelector(
     "[data-js=cantPersonasRegistradas]"
 );
@@ -13,6 +17,8 @@ fetch(`/api/data`)
     .then((response) => {
         if (response.status === "success") {
             processData(response.data);
+            loaded.style.display="block";
+            loader.style.display="none";
         } else {
             iziToast.error({ message: response.error, position: "bottomLeft" });
         }
@@ -37,7 +43,8 @@ function processData(data) {
 
     // Vista tabla de primeras 100 personas
     data.tablaPersonas.forEach((persona, i) => {
-        tablaPersonas.innerHTML += `<tr>
+        tablaPersonas.innerHTML += 
+            `<tr>
                 <th scope="row">${i + 1}</th>
                 <td>${persona.nombre}</td>
                 <td>${persona.edad}</td>
@@ -47,7 +54,8 @@ function processData(data) {
 
     // Vista tabla de equipos por cantidad de socios
     data.tablaEdades.forEach((euipoData) => {
-        tablaEdades.innerHTML += `<tr>
+        tablaEdades.innerHTML += 
+            `<tr>
                 <th scope="row">${euipoData.cantSocios}</th>
                 <td>${euipoData.equipo}</td>
                 <td>${euipoData.promEdad}</td>

@@ -19,6 +19,8 @@ function InputArchivoOnchange() {
 
 function submitArchivo(event) {
     event.preventDefault();
+    btnEnviar.disabled = true;
+    btnEnviar.lastElementChild.classList.remove("d-none");
 
     const formData = new FormData();
     formData.append("personasInfo", inputArchivo.files[0]);
@@ -29,10 +31,14 @@ function submitArchivo(event) {
             if (response.status === "success") {
                 window.location.href = "/data";
             } else {
+                btnEnviar.disabled = false;
+                btnEnviar.lastElementChild.classList.add("d-none");
                 iziToast.error({ message: response.error, position: 'bottomLeft'});
             }
         })
         .catch((e) => {
+            btnEnviar.disabled = false;
+            btnEnviar.lastElementChild.classList.add("d-none");
             iziToast.error({ message: e.error , position: 'bottomLeft'});
         });
 }

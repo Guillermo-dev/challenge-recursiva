@@ -10,7 +10,11 @@
         <script type="module" src="show-data.js"></script>
     </head>
     <body>
-        <div class="container bg-light">
+    <div class="show-data"> 
+        <video autoplay muted loop id="background-video">
+            <source src="../../global/media/background.mp4" type="video/mp4">
+        </video>
+        <div class="container bg-light css-loaded">
             <div class="d-flex justify-content-around flex-wrap my-5 pt-5">
                 <div class="card bg-light mb-3">
                     <div class="card-header text-center d-flex align-items-center">
@@ -95,5 +99,79 @@
                 <a class="btn btn-secondary btn-lg" href ="/">Volver</a>
             </div>
         </div>
+
+        <!-- Loading -->
+        <div class="container bg-light css-loading">
+            <div class="d-flex justify-content-around flex-wrap my-5 pt-5">
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center d-flex align-items-center">
+                        <strong>Personas registradas</strong>
+                    </div>
+                    <div class="card-body text-center d-flex align-items-center justify-content-center">
+                        <span class="spinner-border"></span>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center d-flex align-items-center">
+                        <div>
+                            <strong>Promedio de edad</strong>
+                            <p class="mb-0">hinchas de racing</p>
+                        </div>
+                    </div>
+                    <div class="card-body text-center  d-flex align-items-center justify-content-center">
+                        <span class="spinner-border"></span>
+                    </div>
+                </div>
+
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center d-flex align-items-center">
+                        <div>
+                            <strong>Top 5 nombre</strong>
+                            <p class="mb-0">mas comunes hinchas de river</p>
+                        </div>
+                    </div>
+                    <div class="card-body text-center" data-js="nombresRiver">
+                        <span class="spinner-border"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="my-5 d-flex flex-column">
+                <label class="text-center border-bottom border-dark"><strong>100 primeras personas casadas y con estudios universitarios</strong></label>
+                <table class="table table-striped bg-light text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Equipo</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class ="d-flex justify-content-center">
+                    <span class="spinner-border"></span>
+                </div>
+            </div>
+            <div class="my-4 d-flex flex-column">
+                <label class="text-center border-bottom border-dark"><strong>Listado de equipo por cantidad de socios</strong></label>
+                <table class="table table-striped bg-light text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cantidad de socios</th>
+                            <th scope="col">Equipo</th>
+                            <th scope="col">Promedio de edad</th>
+                            <th scope="col">Menor edad</th>
+                            <th scope="col">Mayor edad</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class ="d-flex justify-content-center">
+                    <span class="spinner-border"></span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center pb-4">
+                <a class="btn btn-secondary btn-lg" href ="/">Volver</a>
+            </div>
+        </div>
+    </div>
     </body>
 </html>
