@@ -1,0 +1,4 @@
+Para este Challenge hice uso de los gestores de dependencias "npm" y "composer"
+Luego de clonar usar "npm install" y "composer install" para instalar las dependencias utilizadas
+
+Para el desarrollo utilice la herramienta XAMPP para dar uso del servidor apache de forma local
